@@ -1,6 +1,9 @@
-markdown: rdiscount
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  auto_ids: true
 baseurl: /WWII
-permalink: /:categories/:title
+permalink: pretty
 excerpt_separator: "\n\n"
 relative_permalinks: false
 exclude: []

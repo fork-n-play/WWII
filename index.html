@@ -24,8 +24,10 @@ script: [
     <ul id="commits"><li>no commits</li></ul>
   </section>
   <!-- LOAD SITE SCRIPTS -->
-  {% if site.script %}{% for script in site.script %}<script src="{{ script }}"></script>{% endfor %}{% endif %}
+  {% if site.script %}{% for script in site.script %}<script src="{{ script }}"></script>
+  {% endfor %}{% endif %}
   <!-- LOAD PAGE SCRIPTS -->
-  {% if page.script %}{% for script in page.script %}<script src="{{ script }}"></script>{% endfor %}{% endif %}
+  {% if page.script %}{% for script in page.script %}<script src="{{ script }}"></script>
+  {% endfor %}{% endif %}
 </body>
 </html>
