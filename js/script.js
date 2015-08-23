@@ -1,4 +1,5 @@
-var token = '';
+var token = '',
+    config = '';
 
 // Get current gh-pages username and reponame
 var pathArray = window.location.host.split( '.' );
@@ -21,8 +22,9 @@ if( localStorage.getItem("token") !== null ){
   repo.read('master', 'config.json', function(err, data) {
     if(err===null){
       localStorage.setItem("config",data);
+      config = JSON.parse(data);
       // Append system in div
-      document.getElementById("config").value = JSON.parse(data).system;
+      document.getElementById("config").value = config.system;
       // Read `name.txt` commits
       readCommits(repo);
     }else{
