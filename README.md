@@ -1,11 +1,11 @@
 # WWII
 
-World War II – Player repository
-World War II - [System repository](https://github.com/Fork-n-Play/WWII-system)
+- World War II – Player repository
+- World War II - [System repository](https://github.com/Fork-n-Play/WWII-system)
 
 ## Setup repository
 
-view [petrosh/autoCommit](https://github.com/petrosh/autoCommit)
+Refer to [petrosh/autoCommit](https://github.com/petrosh/autoCommit)
 
 1. Fork this repository.
 2. Make a commit to build gh-pages (for example modify this [README.md](../../edit/master/README.md)).
