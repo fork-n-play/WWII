@@ -64,7 +64,7 @@ function readCommits(repo){
         // Create list item, populate and append
         newLi = document.createElement("li");
         newLi.innerHTML = '<a href="'+data[key].html_url+'">'+data[key].commit.message+'</a>';
-        commitsList.appendChild(newLi);
+        commitList.appendChild(newLi);
       });
       // Append name in textarea
       document.getElementById("body").value = data;
