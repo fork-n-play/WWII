@@ -3,10 +3,10 @@ baseurl: /WWII
 permalink: /:categories/:title
 excerpt_separator: "\n\n"
 relative_permalinks: false
-exclude: ['php_post_creator']
-
-url:
-
+exclude: []
+script: [
+  'js/github.js'
+]
 name: WWII-player
 title: WWII player repository
 description: Distribuited World War II a la Wolfenstein on top of Fork-n-Play
