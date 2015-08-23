@@ -79,7 +79,7 @@ function readSystem(){
     if(!err){
       // Display data
       systemConfig = JSON.parse(data);
-      document.getElementById("config").innerHTML = systemConfig.descrition;
+      document.getElementById("config").innerHTML = systemConfig.description;
     }
   });
 }
