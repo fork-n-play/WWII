@@ -20,10 +20,9 @@ if( localStorage.getItem("token") !== null ){
   var repo = github.getRepo(username, reponame);
   repo.read('master', 'config.json', function(err, data) {
     if(err===null){
-      var config = data;
-      localStorage.setItem("config",config);
+      localStorage.setItem("config",data);
       // Append system in div
-      document.getElementById("config").value = config.system;
+      document.getElementById("config").value = data.system;
       // Read `name.txt` commits
       readCommits(repo);
     }else{
