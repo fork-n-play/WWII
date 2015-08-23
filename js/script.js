@@ -20,7 +20,7 @@ if( localStorage.getItem("token") !== null ){
   // Read repository
   var repo = github.getRepo(username, reponame);
   repo.read('master', 'config.json', function(err, data) {
-    if(err===null){
+    if(err === null){
       localStorage.setItem("config",data);
       config = JSON.parse(data);
       // Display data
@@ -42,7 +42,7 @@ if( localStorage.getItem("token") !== null ){
     body = document.getElementById("body").value;
     // Write on master branch
     repo.write('master', 'data/name.txt', body, 'committed '+new Date(), function(err, sha) {
-      if(err===null){
+      if(err === null){
         // Success
         document.getElementsByTagName('section')[0].innerHTML = '<h1>Commit ok</h1><h2>sha ' + sha + '</h2><a href="/' + reponame + '">Again</a>';
       }else{
@@ -58,11 +58,11 @@ if( localStorage.getItem("token") !== null ){
 function readCommits(repo){
   // Read commits
   repo.getCommits({ sha:'master', path:'data' }, function(err, data){
-    if(err===null){
+    if(err === null){
       // Commits loop
       commitList = document.getElementById("commits");
-      Object.keys(data).forEach(function(key,index){
-        if(index === 0) commitList.removeChild(commitList.firstChild);
+      Object.keys(data).forEach( function(key, index){
+        if( index === 0 ) commitList.removeChild(commitList.firstChild);
         // Create list item, populate and append
         newLi = document.createElement("li");
         newLi.innerHTML = '<a href="' + data[key].html_url + '">' + data[key].commit.message + '</a>';
