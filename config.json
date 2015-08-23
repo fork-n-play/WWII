@@ -1,3 +1,6 @@
 {
-  "system": "Fork-n-Play/WWII"
+  "system": {
+    "username": "Fork-n-Play",
+    "repository": "WWII"
+  }
 }
