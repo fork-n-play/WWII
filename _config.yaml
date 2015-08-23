@@ -1,15 +1,29 @@
+# Setup
+name: WWII-player
+title: WWII player repository
+description: Distribuited World War II a la Wolfenstein on top of Fork-n-Play
+
+# Options
+excerpt_separator: "\n\n"
+exclude: []
+script: [
+  'js/github.js'
+]
+
+# Assets
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir: _scss
+  style: :compressed
+
+# Syntax highlighting
 highlighter: pygments
 markdown: kramdown
 kramdown:
   auto_ids: true
 baseurl: /WWII
+
+# Permalinks
+# Use of `relative_permalinks` ensures post links from the index work properly.
 permalink: pretty
-excerpt_separator: "\n\n"
-relative_permalinks: false
-exclude: []
-script: [
-  'js/github.js'
-]
-name: WWII-player
-title: WWII player repository
-description: Distribuited World War II a la Wolfenstein on top of Fork-n-Play
+relative_permalinks: true
