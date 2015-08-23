@@ -1,4 +1,4 @@
-highlighter: rouge
+highlighter: pygments
 markdown: kramdown
 kramdown:
   auto_ids: true
