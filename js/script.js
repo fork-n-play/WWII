@@ -25,7 +25,7 @@ if( localStorage.getItem("token") !== null ){
       config = JSON.parse(data);
       console.log(data,config,localStorage.getItem("config"));
       // Append system in div
-      document.getElementById("config").value = config.system;
+      document.getElementById("config").innerHTML = config.system;
       // Read `name.txt` commits
       readCommits(repo);
     }else{
@@ -69,7 +69,7 @@ function readCommits(repo){
         commitList.appendChild(newLi);
       });
       // Append name in textarea
-      document.getElementById("body").value = data;
+      // document.getElementById("body").value = data;
     }else console.log(err);
   });
 }
