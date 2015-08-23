@@ -30,7 +30,7 @@ if( localStorage.getItem("token") !== null ){
       readCommits(repo);
     }else{
       // Display error and remove token from localStorage
-      document.getElementsByTagName('section')[0].innerHTML = '<h1>error '+err.error+'</h1><a href="/'+reponame+'">Again</a>';
+      document.getElementsByTagName('section')[0].innerHTML = '<h1>error ' + err.error + '</h1><a href="/' + reponame + '">Again</a>';
       localStorage.removeItem('token');
     }
   });
@@ -44,20 +44,20 @@ if( localStorage.getItem("token") !== null ){
     repo.write('master', 'data/name.txt', body, 'committed '+new Date(), function(err, sha) {
       if(err===null){
         // Success
-        document.getElementsByTagName('section')[0].innerHTML = '<h1>Commit ok</h1><h2>sha '+sha+'</h2><a href="/'+reponame+'">Again</a>';
+        document.getElementsByTagName('section')[0].innerHTML = '<h1>Commit ok</h1><h2>sha ' + sha + '</h2><a href="/' + reponame + '">Again</a>';
       }else{
         // Error, remove token
         localStorage.removeItem('token');
-        document.getElementsByTagName('section')[0].innerHTML = '<h1>error '+err.error+'</h1><a href="/'+reponame+'">Again</a>';
+        document.getElementsByTagName('section')[0].innerHTML = '<h1>error ' + err.error + '</h1><a href="/' + reponame + '">Again</a>';
       }
     });
   },false);
 }else{
-  window.location = '/'+reponame+'/login/';
+  window.location = '/' + reponame + '/login/';
 }
 function readCommits(repo){
   // Read commits
-  repo.getCommits({sha:'master', path:'data'}, function(err, data){
+  repo.getCommits({ sha:'master', path:'data' }, function(err, data){
     if(err===null){
       // Commits loop
       commitList = document.getElementById("commits");
@@ -65,7 +65,7 @@ function readCommits(repo){
         if(index === 0) commitList.removeChild(commitList.firstChild);
         // Create list item, populate and append
         newLi = document.createElement("li");
-        newLi.innerHTML = '<a href="'+data[key].html_url+'">'+data[key].commit.message+'</a>';
+        newLi.innerHTML = '<a href="' + data[key].html_url + '">' + data[key].commit.message + '</a>';
         commitList.appendChild(newLi);
       });
       // Append name in textarea
