@@ -1,5 +1,6 @@
 var token = '',
-    config = '';
+    config = '',
+    systemConfig = '';
 
 // Get current gh-pages username and repository
 var pathArray = window.location.host.split( '.' );
@@ -23,8 +24,6 @@ if( localStorage.getItem("token") !== null ){
     if(err === null){
       localStorage.setItem("config",data);
       config = JSON.parse(data);
-      // Display data
-      document.getElementById("config").innerHTML = config.system.username + '/' + config.system.repository;
       document.getElementById("body").value = data;
       // Read `name.txt` commits
       readCommits();
@@ -78,7 +77,9 @@ function readSystem(){
   var systemRepo = github.getRepo(config.system.username, config.system.repository);
   systemRepo.read('master', 'config.json', function(err, data) {
     if(!err){
-      console.log(JSON.parse(data));
+      // Display data
+      systemConfig = JSON.parse(data);
+      document.getElementById("config").innerHTML = systemConfig.descrition;
     }
   });
 }
