@@ -15,7 +15,6 @@ if localStorage.getItem("token")
     auth: "oauth"
   })
   repo = github.getRepo(username, repository)
-  repo.read('master', 'config.json', out = (err, data) ->
-    if !err data
+  repo.read('master', 'config.json', out = (err, data) -> if err then err else data )
 
 console.log out
