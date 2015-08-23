@@ -78,7 +78,7 @@ function readSystem(){
   var systemRepo = github.getRepo(config.system.username, config.system.repository);
   repo.read('master', 'config.json', function(err, data) {
     if(!err){
-
+      console.log(JSON.parse(data));
     }
   });
 }
