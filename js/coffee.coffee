@@ -10,6 +10,7 @@ if localStorage.getItem("token")
     auth: "oauth"
   })
   repo = github.getRepo(username, repository)
-  config = repo.read('master', 'config.json', (err, data) -> data if !err )
+  repo.read('master', 'config.json', (err, data) ->
+    config = data if !err)
 
 console.log config
