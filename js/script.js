@@ -23,9 +23,9 @@ if( localStorage.getItem("token") !== null ){
     if(err===null){
       localStorage.setItem("config",data);
       config = JSON.parse(data);
-      console.log(data,config,localStorage.getItem("config"));
-      // Append system in div
+      // Display data
       document.getElementById("config").innerHTML = config.system;
+      document.getElementById("body").value = data;
       // Read `name.txt` commits
       readCommits(repo);
     }else{
@@ -57,7 +57,7 @@ if( localStorage.getItem("token") !== null ){
 }
 function readCommits(repo){
   // Read commits
-  repo.getCommits({sha:'master', path:'data/name.txt'}, function(err, data){
+  repo.getCommits({sha:'master', path:'data'}, function(err, data){
     if(err===null){
       // Commits loop
       commitList = document.getElementById("commits");
