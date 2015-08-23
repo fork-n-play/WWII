@@ -1,6 +1,7 @@
 # WWII
 
 World War II – Player repository
+World War II - [System repository](https://github.com/Fork-n-Play/WWII-system)
 
 ## Setup repository
 
@@ -14,4 +15,7 @@ view [petrosh/autoCommit](https://github.com/petrosh/autoCommit)
 
 ## Flow
 
-1. Read `WWII-system` tables
+1. Read `config.json` and data
+2. Read `system` config, scripts, tables
+3. Input actions
+4. Commit changes and open a Pull request on `system`
