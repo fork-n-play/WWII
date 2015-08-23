@@ -2,6 +2,10 @@
 layout: default
 title: Home
 permalink: /
+script: [
+  'js/script.js',
+  'js/coffee.js'
+]
 ---
 <!DOCTYPE html>
 <html>
@@ -18,7 +22,9 @@ permalink: /
     <input type="button" name="submit" id="submit" value="GO">
     <ul id="commits"><li>no commits</li></ul>
   </section>
-  <script src="js/github.js"></script>
-  <script src="js/script.js"></script>
+  <!-- LOAD SITE SCRIPTS -->
+  {% if site.script %}{% for script in site.script %}<script src="{{ script }}"></script>{% endfor %}{% endif %}
+  <!-- LOAD PAGE SCRIPTS -->
+  {% if page.script %}{% for script in page.script %}<script src="{{ script }}"></script>{% endfor %}{% endif %}
 </body>
 </html>
