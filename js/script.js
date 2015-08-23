@@ -22,7 +22,7 @@ if( localStorage.getItem("token") !== null ){
     if(err===null){
       localStorage.setItem("config",data);
       // Append system in div
-      document.getElementById("config").value = data.system;
+      document.getElementById("config").value = JSON.parse(data).system;
       // Read `name.txt` commits
       readCommits(repo);
     }else{
