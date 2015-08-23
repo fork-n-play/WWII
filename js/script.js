@@ -1,12 +1,12 @@
 var token = '',
     config = '';
 
-// Get current gh-pages username and reponame
+// Get current gh-pages username and repository
 var pathArray = window.location.host.split( '.' );
 var pathSlash = window.location.pathname.split( '/' ); // pathSlash[1]
 var username = pathArray[0];
-var reponame = pathSlash[1];
-// root index.html url is '/'+reponame
+var repository = pathSlash[1];
+// root index.html url is '/'+repository
 
 // Check if token is stored
 if( localStorage.getItem("token") !== null ){
@@ -18,19 +18,20 @@ if( localStorage.getItem("token") !== null ){
     auth: "oauth"
   });
   // Read repository
-  var repo = github.getRepo(username, reponame);
+  var repo = github.getRepo(username, repository);
   repo.read('master', 'config.json', function(err, data) {
     if(err === null){
       localStorage.setItem("config",data);
       config = JSON.parse(data);
       // Display data
-      document.getElementById("config").innerHTML = config.system;
+      document.getElementById("config").innerHTML = config.system.username + '/' + config.system.repository;
       document.getElementById("body").value = data;
       // Read `name.txt` commits
-      readCommits(repo);
+      readCommits();
+      readSystem();
     }else{
       // Display error and remove token from localStorage
-      document.getElementsByTagName('section')[0].innerHTML = '<h1>error ' + err.error + '</h1><a href="/' + reponame + '">Again</a>';
+      document.getElementsByTagName('section')[0].innerHTML = '<h1>error ' + err.error + '</h1><a href="/' + repository + '">Again</a>';
       localStorage.removeItem('token');
     }
   });
@@ -44,18 +45,18 @@ if( localStorage.getItem("token") !== null ){
     repo.write('master', 'data/name.txt', body, 'committed '+new Date(), function(err, sha) {
       if(err === null){
         // Success
-        document.getElementsByTagName('section')[0].innerHTML = '<h1>Commit ok</h1><h2>sha ' + sha + '</h2><a href="/' + reponame + '">Again</a>';
+        document.getElementsByTagName('section')[0].innerHTML = '<h1>Commit ok</h1><h2>sha ' + sha + '</h2><a href="/' + repository + '">Again</a>';
       }else{
         // Error, remove token
         localStorage.removeItem('token');
-        document.getElementsByTagName('section')[0].innerHTML = '<h1>error ' + err.error + '</h1><a href="/' + reponame + '">Again</a>';
+        document.getElementsByTagName('section')[0].innerHTML = '<h1>error ' + err.error + '</h1><a href="/' + repository + '">Again</a>';
       }
     });
   },false);
 }else{
-  window.location = '/' + reponame + '/login/';
+  window.location = '/' + repository + '/login/';
 }
-function readCommits(repo){
+function readCommits(){
   // Read commits
   repo.getCommits({ sha:'master', path:'data' }, function(err, data){
     if(err === null){
@@ -71,5 +72,13 @@ function readCommits(repo){
       // Append name in textarea
       // document.getElementById("body").value = data;
     }else console.log(err);
+  });
+}
+function readSystem(){
+  var systemRepo = github.getRepo(config.system.username, config.system.repository);
+  repo.read('master', 'config.json', function(err, data) {
+    if(!err){
+
+    }
   });
 }
