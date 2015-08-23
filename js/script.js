@@ -23,6 +23,7 @@ if( localStorage.getItem("token") !== null ){
     if(err===null){
       localStorage.setItem("config",data);
       config = JSON.parse(data);
+      console.log(data,config,localStorage.setItem("config"));
       // Append system in div
       document.getElementById("config").value = config.system;
       // Read `name.txt` commits
