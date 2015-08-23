@@ -7,4 +7,4 @@
 # Get current gh-pages username and repository
 username = window.location.host.split( '.' )[0];
 repository = window.location.pathname.split( '/' )[1];
-log username
+console.log username,repository
