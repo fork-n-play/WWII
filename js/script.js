@@ -5,11 +5,12 @@ var pathArray = window.location.host.split( '.' );
 var pathSlash = window.location.pathname.split( '/' ); // pathSlash[1]
 var username = pathArray[0];
 var reponame = pathSlash[1];
+// root index.html url is '/'+reponame
 
 // Check if token is stored
 if( localStorage.getItem("token") !== null ){
   // Retrieve token from localStorage
-  token = document.getElementById("token").value = localStorage.getItem("token");
+  token = localStorage.getItem("token");
   // OAuth
   var github = new Github({
     token: token,
@@ -50,7 +51,7 @@ if( localStorage.getItem("token") !== null ){
     });
   },false);
 }else{
-  window.location = '/login/';
+  window.location = '/'+reponame+'/login/';
 }
 function readCommits(repo){
   // Read commits
