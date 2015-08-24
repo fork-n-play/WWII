@@ -25,7 +25,7 @@ REPO = octo.repos(username+'/'+repository) # for brevity
 # Option 3: using methods on the fetched Repository object
 REPO.forks.fetch (err, forks) ->
   console.log(forks)
-  BEPO = octo.repos(forks[0].full_name)
+  BEPO = octo.repos(forks[0].fullName)
   BEPO.fetch()
   .then (bepo) ->
     console.log(bepo.commits)
