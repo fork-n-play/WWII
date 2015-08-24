@@ -3,6 +3,13 @@
 - World War II – Player repository
 - World War II - [System repository](https://github.com/Fork-n-Play/WWII-system)
 
+## API wrappers
+
+- [philschatz/octokat.js](https://github.com/philschatz/octokat.js)
+  - [example.md](https://github.com/philschatz/octokat.js/blob/afde38c4bf20423dc51215816047277c003cac14/examples.md)
+- [michael/github.js](https://github.com/michael/github)
+  - [github.js](https://github.com/michael/github/blob/master/github.js)
+
 ## Setup repository
 
 Refer to [petrosh/autoCommit](https://github.com/petrosh/autoCommit)
