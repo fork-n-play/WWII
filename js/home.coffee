@@ -1,12 +1,15 @@
 ---
 ---
 username = window.location.host.split( '.' )[0]
-if username = '0'
-  username = 'Fork-n-Play'
 repository = window.location.pathname.split( '/' )[1]
 
+# fix for local
+if username = '0'
+  username = 'Fork-n-Play'
+# end fix
+
 octo = if localStorage.getItem("player.token") then new Octokat({
-  token: localStorage.getItem("player.token")
+  token: atob( localStorage.getItem( "player.token" ) )
 }) else window.location = '/' + repository + '/login/';
 
 REPO = octo.repos(username+'/'+repository)
