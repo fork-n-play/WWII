@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>WWII-player Login</title>
-</head>
-<body>
-  <section>
-    <h1>login</h1>
-    <p>
-      Paste your personal token or <a href="https://github.com/settings/tokens">generate one</a>
-    </p>
-    <input type="text" name="token" id="token" value="" size="50">
-    <input type="button" name="submit" id="submit" value="GO">
-  </section>
-  <script src="../js/github.js"></script>
-  <script src="../js/login.js"></script>
-</body>
-</html>
+---
+layout: default
+title: Login
+scripts: [
+  'login'
+]
+---
+<section>
+  <h1>login</h1>
+  <p>
+    Paste your personal token or <a target ="_blank" href="https://github.com/settings/tokens/new">generate one (you need only the `public_repo` scope selected)</a>
+  </p>
+  <input type="text" name="token" id="token" value="" size="50">
+  <input type="button" name="submit" id="submit" value="GO">
+</section>
