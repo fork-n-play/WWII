@@ -26,9 +26,10 @@ REPO = octo.repos(username+'/'+repository) # for brevity
 REPO.fetch()
 .then (repo) ->
   # `repo` contains returned JSON and additional methods
-  repo.issues(1).fetch()
-  .then (issue) ->
+  repo.forks(1).fetch()
+  .then (fork) ->
     # `repo` contains returned JSON and additional methods
-    issue.comments.fetch()
-    .then (comments) ->
-      console.log(comments)
+    BEPO = octo.repos(fork.full_name)
+    BEPO.fetch()
+    .then (bepo) ->
+      console.log(bepo.commits)
