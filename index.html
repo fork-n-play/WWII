@@ -1,33 +1,18 @@
 ---
 layout: default
 title: Home
-script: [
-  'js/script.js',
-  'js/octokat.js',
-  'js/coffee.js'
+scripts: [
+  'home'
 ]
 ---
-<!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>{{ site.name }}</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <section>
-    <h1>logged</h1>
-    <pre id="config"></pre>
-    <textarea name="body" id="body" rows="10" cols="50"></textarea>
-    <br>
-    <input type="button" name="submit" id="submit" value="GO">
-    <ul id="commits"><li>no commits</li></ul>
-  </section>
-  <!-- LOAD SITE SCRIPTS -->
-  {% if site.script %}{% for script in site.script %}<script src="{{ script }}"></script>
-  {% endfor %}{% endif %}
-  <!-- LOAD PAGE SCRIPTS -->
-  {% if page.script %}{% for script in page.script %}<script src="{{ script }}"></script>
-  {% endfor %}{% endif %}
-</body>
-</html>
+
+<section>
+
+<h1>Home</h1>
+
+<pre id="config"></pre>
+<textarea name="body" id="body" rows="10" cols="50"></textarea>
+
+<input type="button" name="submit" id="submit" value="GO">
+<ul id="commits"><li>no commits</li></ul>
+</section>
