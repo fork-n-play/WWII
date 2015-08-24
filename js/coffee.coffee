@@ -20,16 +20,12 @@ octo = new Octokat({
   token: localStorage.getItem("token")
 })
 
-REPO = octo.repos(username+'/'+repository) # for brevity
+REPO = octo.repos(username+'/'+repository).forks # for brevity
 
 # Option 3: using methods on the fetched Repository object
-REPO.fetch()
-.then (repo) ->
-  # `repo` contains returned JSON and additional methods
-  repo.forks(1).fetch()
-  .then (fork) ->
-    # `repo` contains returned JSON and additional methods
-    BEPO = octo.repos(fork.full_name)
-    BEPO.fetch()
-    .then (bepo) ->
-      console.log(bepo.commits)
+REPO.fetch() (err, forks) ->
+  console.log(forks)
+  BEPO = octo.repos(forks[0].full_name)
+  BEPO.fetch()
+  .then (bepo) ->
+    console.log(bepo.commits)
