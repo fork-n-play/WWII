@@ -10,7 +10,7 @@ if username == '0'
 # end fix
 
 if localStorage.getItem("player.token")
-  octo = new Octokat({ token: atob(localStorage.getItem("player.token"))})
+  window.octo = octo = new Octokat({ token: atob(localStorage.getItem("player.token"))})
   window.REPO = REPO = octo.repos(username+'/'+repository)
   REPO.fetch (err, data) ->
     if err
