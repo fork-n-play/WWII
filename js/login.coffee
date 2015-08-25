@@ -1,5 +1,10 @@
 ---
 ---
+
+# Clear localStorage
+localStorage.clear()
+
+# Wait for token
 document.getElementById("submit").addEventListener('click', (e) ->
   val = document.getElementById("token").value
   but = document.getElementById("submit")
