@@ -10,19 +10,19 @@
 - [michael/github.js](https://github.com/michael/github)
   - [github.js](https://github.com/michael/github/blob/master/github.js)
 
-## Setup repository
+## Setup
 
 Refer to [petrosh/autoCommit](https://github.com/petrosh/autoCommit)
 
 1. Fork this repository.
-2. Choose a player name and insert in [name.txt](../../edit/master/data/name.txt).
+2. Choose a player name and insert in [name.txt](../../edit/gh-pages/name.txt) (must be in gh-pages).
 3. Create a [personal token](https://github.com/settings/tokens) and copy it.
-4. Head to `YOUR_USERNAME.github.io/WWII` and paste the token.
-5. Now you can commit to [LOG.md](LOG.md) from the same page.
+4. Head to `<YOUR_USERNAME>.github.io/WWII` and paste the token.
+5. Done
 
 ## Flow
 
 1. Read `config.json` and data
 2. Read `system` config, scripts, tables
 3. Input actions
-4. Commit changes and open a Pull request on `system`
+4. Commit changes and open a Pull request on `system/branch`
