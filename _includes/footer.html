@@ -1,8 +1,0 @@
-  <!-- LOAD SITE SCRIPTS -->
-  {% if site.scripts %}{% for script in site.scripts %}<script src="{% if page.title != 'Home' %}../{% endif %}js/{{ script }}.js"></script>
-  {% endfor %}{% endif %}
-  <!-- LOAD PAGE SCRIPTS -->
-  {% if page.scripts %}{% for script in page.scripts %}<script src="{% if page.title != 'Home' %}../{% endif %}js/{{ script }}.js"></script>
-  {% endfor %}{% endif %}
-</body>
-</html>
