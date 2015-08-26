@@ -12,5 +12,5 @@ document.getElementById("submit").addEventListener('click', (e) ->
     but.setAttribute("disabled", "true")
     localStorage.setItem("player.token", btoa(val))
     window.location = '/' + window.location.pathname.split( '/' )[1] + '/'
-    return
+  return
 )
