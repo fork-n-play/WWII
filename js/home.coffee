@@ -1,13 +1,26 @@
 ---
 ---
 
-username = localStorage.getItem("player.username")
-reponame = localStorage.getItem("player.reponame")
-repository = JSON.parse(localStorage.getItem("player.repository"))
-commitList = document.getElementById("commits")
+username = window.location.host.split( '.' )[0]
+# fix for local
+if username == '0'
+  username = 'petrosh'
+# end fix
+localStorage.setItem("player.username", username)
+reponame = window.location.pathname.split( '/' )[1]
+localStorage.setItem("player.reponame", reponame)
+token = localStorage.getItem("player.token")
+redirect = '/' + reponame + '/login/'
 
-octo = new Octokat({ token: atob(localStorage.getItem("player.token"))})
-REPO = octo.repos(username+'/'+reponame)
+# If logged store `repository`, otherwise goto `login`
+if localStorage.getItem("player.token")
+  octo = new Octokat({ token: atob(token)})
+  REPO = octo.repos(username+'/'+reponame)
+  REPO.fetch (err, data) ->
+    if !err
+      localStorage.setItem("player.repository", JSON.stringify(data))
+    else window.location = redirect
+else window.location = redirect
 
 # Print `color/color.json` commits since `createdAt`
 REPO.commits.fetch({sha: "color", path: "color.json", since: repository.createdAt})
@@ -19,7 +32,7 @@ REPO.commits.fetch({sha: "color", path: "color.json", since: repository.createdA
       commitList.appendChild(newLi);
     return
 
-# Wait for color
+# Wait for color and Commit
 document.getElementById("submit").addEventListener('click', (e) ->
   col = document.getElementById("body").value
   but = document.getElementById("submit")
@@ -35,11 +48,3 @@ document.getElementById("submit").addEventListener('click', (e) ->
              window.location = '/' + window.location.pathname.split( '/' )[1] + '/'
         return
 )
-
-# Option 3: using methods on the fetched Repository object
-# REPO.commits.fetch({path:"color"}) (err, commit) ->
-#   console.log(commit)
-#   BEPO = octo.repos(commit[0].fullName).commits
-#   BEPO.fetch()
-#   .then (bepo) ->
-#     console.log(bepo)
