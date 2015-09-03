@@ -1,1 +1,1 @@
-issues.create?
+pulls.create
