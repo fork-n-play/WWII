@@ -1,1 +1,1 @@
-issues.add
+events.create
