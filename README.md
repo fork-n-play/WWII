@@ -3,12 +3,21 @@
 - World War II – Player repository
 - World War II - [System repository](https://github.com/Fork-n-Play/WWII-system)
 
-## API wrappers
+## Scripts
 
 - [philschatz/octokat.js](https://github.com/philschatz/octokat.js)
   - [example.md](https://github.com/philschatz/octokat.js/blob/afde38c4bf20423dc51215816047277c003cac14/examples.md)
-- [michael/github.js](https://github.com/michael/github)
-  - [github.js](https://github.com/michael/github/blob/master/github.js)
+
+- [nodeca/js-yaml](https://github.com/nodeca/js-yaml) parser and dumper  
+  ```coffee
+  REPO.contents('_config.yaml').fetch {ref: 'gh-pages'}
+  .then (yml) ->
+    a = jsyaml.load atob yml.content
+    for i of a
+      console.log i, a[i] # key, value
+    console.log jsyaml.dump a # referse to yml
+    return
+  ```
 
 ## Setup
 
@@ -30,3 +39,4 @@ Refer to [petrosh/autoCommit](https://github.com/petrosh/autoCommit)
 ## Thanks to
 
 - http://www.regexr.com/
+- https://somafm.com/fluid/
