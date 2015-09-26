@@ -6,8 +6,8 @@ description: Distribuited World War II a la Wolfenstein on top of Fork-n-Play
 # JS and CSS
 scripts:
   - octokat
-  - cson
-  - coffee-script
+  - esprima
+  - js-yaml
 
 styles:
   - style
