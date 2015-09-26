@@ -26,3 +26,7 @@ Refer to [petrosh/autoCommit](https://github.com/petrosh/autoCommit)
 2. Read `system` config, scripts, tables
 3. Input actions
 4. Commit changes and open a Pull request on `system/branch`
+
+## Thanks to
+
+- http://www.regexr.com/
