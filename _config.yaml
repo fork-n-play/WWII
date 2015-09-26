@@ -4,12 +4,13 @@ title: WWII player
 description: Distribuited World War II a la Wolfenstein on top of Fork-n-Play
 
 # JS and CSS
-scripts: [
-  'octokat'
-]
-styles: [
-  'style'
-]
+scripts:
+  - octokat
+  - cson
+  - coffee-script
+
+styles:
+  - style
 
 # Options
 excerpt_separator: "\n\n"
